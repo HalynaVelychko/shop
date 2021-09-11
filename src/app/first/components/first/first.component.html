@@ -1,0 +1,13 @@
+<div class="first__wrapper">
+  <div class="first__card">
+    <h2>{{ category }}</h2>
+    <h3>Brand: {{ name }}</h3>
+    <img [src]="imageUrl" [alt]="name" class="first__image">
+    <div class="description">
+      <p>Description: {{ description }}</p>
+    </div>
+    <p>Price: {{ price }}<span>$</span></p>
+    <p>Available: <span>{{ isAvailable }}</span></p>
+  </div>
+  <app-product></app-product>
+</div>
