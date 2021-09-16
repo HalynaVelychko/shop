@@ -1,6 +1,8 @@
+import { CartService } from './../../../cart/service/cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Component } from '@angular/core';
 import { CartListComponent } from 'src/app/cart/components/cart-list/cart-list.component';
+import { cartDataMock } from 'src/app/data/cartDataMock';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +15,7 @@ export class HeaderComponent {
 
   onOpenCart() {
     this.dialog.open(CartListComponent, {
-      data: {
-        name: "Mazdax7",
-        price: 30000,
-        imageUrl: '../../../../assets/images/mazdaCX7.jpg'
-      }
+      data: cartDataMock
     });
   };
 };
