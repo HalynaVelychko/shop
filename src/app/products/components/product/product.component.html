@@ -1,3 +1,15 @@
-<div class="product__action">
-  <button class="product__button" (click)="onAddToCart()">Buy</button>
+<div class="product__wrapper">
+  <div class="product__card">
+    <h2>{{ product.category }}</h2>
+    <h3>Brand: {{ product.id }} - {{ product.name }}</h3>
+    <img [src]="product.image" [alt]="product.name" class="product__image">
+    <div class="description">
+      <p>Description: {{ product.description }}</p>
+    </div>
+    <p>Price: {{ product.price }}<span>$</span></p>
+    <p>Available: <span>{{ product.isAvailable }}</span></p>
+  </div>
+  <div class="product__action" *ngIf="product.isAvailable">
+    <button class="product__button" (click)="onAddToCart(product)">Buy</button>
+  </div>
 </div>

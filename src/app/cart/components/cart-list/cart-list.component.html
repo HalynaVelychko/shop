@@ -1,7 +1,8 @@
 <mat-dialog-content class="cart-popup__content">
   <div mat-button mat-dialog-close class="cart-popup__button-close"></div>
   <div *ngIf="data.length" else cartEmpthy>
-    <div *ngFor="let element of data; trackBy: trackById">
+    <h1>{{ totalPrice }}</h1>
+    <div *ngFor="let element of data">
       <h2>{{ element.name }}</h2>
       <img [src]="element.image" [alt]="element.name" class="cart__image">
       <p>Price: {{ element.price }}<span>$</span></p>

@@ -1,4 +1,3 @@
-import { cartDataMock } from './../../../data/cartDataMock';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProductModel } from 'src/app/products/model/product.model';
@@ -9,12 +8,9 @@ import { ProductModel } from 'src/app/products/model/product.model';
   styleUrls: ['./cart-list.component.scss']
 })
 export class CartListComponent {
+  totalPrice: number = 0
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: ProductModel[]) {
-    this.data = cartDataMock;
+    this.data.forEach(product => {this.totalPrice += product.price; return this.totalPrice} )
    }
-
-  trackById(index:number, data:ProductModel):number {
-    return data.id
-  }
 }

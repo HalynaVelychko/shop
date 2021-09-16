@@ -1,12 +1,6 @@
 <div *ngIf="products | async as products" class="products__cards">
-    <app-first *ngFor="let product of products"
-      [name]="product.name"
-      [price]="product.price"
-      [category]="product.category"
-      [isAvailable]="product.isAvailable"
-      [imageUrl]="product.image"
-      [description]="product.description"
-    >
-    </app-first>
-
+    <app-product *ngFor="let product of products"
+      [product]="product"
+      (addToCart)="onAddToCartFromList($event)"
+    ></app-product>
 </div>

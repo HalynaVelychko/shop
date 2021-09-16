@@ -1,4 +1,15 @@
 .product {
+  &__wrapper {
+    width: 237px;
+    height: 414px;
+    margin: 2.5rem 1rem;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: 190px;
+  }
+
   &__button {
     background-color: rgba(125,180,66,255);
     border: 1px solid rgba(125,180,66,255);

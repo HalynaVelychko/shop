@@ -25,7 +25,7 @@ export const productsData: ProductModel[] = [
     description: 'some description',
     price: 30000,
     category: ProductCategory.Car,
-    isAvailable: true,
+    isAvailable: false,
     image: '../../assets/images/mazdaCX3.jpg'
   },
   {
@@ -43,16 +43,7 @@ export const productsData: ProductModel[] = [
     description: 'some description',
     price: 1500,
     category: ProductCategory.Bicycle,
-    isAvailable: true,
+    isAvailable: false,
     image: '../../assets/images/cradiacShimanojpg.jpg'
-  },
-  {
-    id: 6,
-    name: 'Yamaha R6',
-    description: 'some description',
-    price: 7500,
-    category: ProductCategory.Motorbike,
-    isAvailable: true,
-    image: '../../assets/images/yamahaR6.jpg'
   },
 ];
