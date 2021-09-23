@@ -1,6 +1,6 @@
 import { CartService } from './../../../cart/service/cart.service';
 import { MatDialog } from '@angular/material/dialog';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CartListComponent } from 'src/app/cart/components/cart-list/cart-list.component';
 import { cartDataMock } from 'src/app/data/cartDataMock';
 
@@ -9,13 +9,13 @@ import { cartDataMock } from 'src/app/data/cartDataMock';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit{
+  @ViewChild('appTitle')
+  title!:  ElementRef<HTMLHeadingElement>;
 
-  constructor(private readonly dialog: MatDialog) { }
+  constructor() { }
 
-  onOpenCart() {
-    this.dialog.open(CartListComponent, {
-      data: cartDataMock
-    });
-  };
+  ngAfterViewInit(){
+    this.title.nativeElement.innerText = "Cars here!"
+  }
 };

@@ -1,39 +1,15 @@
-.cart-popup {
-  &__content {
-    width: fit-content;
-    height: fit-content;
-    color: black;
-    padding: 32px 25px 0;
+.cart {
+  &__wrapper {
+    margin-top: 1.5rem;
+    height: auto;
+    background-color: rgba(125,180,66,255);
+    color: white;
+    padding: 0 1rem;
+  }
+
+  &__item-cards {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    overflow: inherit;
-  }
-  &__button-close {
-    width: 32px;
-    height: 32px;
-    background-color: black;
-    position: absolute;
-    top: -25px;
-    right: 0;
-    cursor: pointer;
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 14px;
-      left: 9px;
-      width: 12px;
-      height: 2px;
-      background-color: white;
-      transform: rotate(45deg);
-    }
-
-    &::after {
-      transform: rotate(-45deg);
-    }
+    padding: 2rem 0;
   }
 }
-

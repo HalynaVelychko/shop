@@ -13,16 +13,15 @@ import { ProdutsService } from '../../service/produts.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  products!: Observable<ProductModel[]>;
+  products$!: Observable<ProductModel[]>;
 
   constructor(private productService: ProdutsService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    this.products$ = this.productService.getProducts();
   }
 
   onAddToCartFromList(product: ProductModel): void {
-    console.log('this is ID from PLP', product)
     this.cartService.addToCart(product)
   }
 }

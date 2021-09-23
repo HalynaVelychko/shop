@@ -1,0 +1,10 @@
+<div class="cart-item__wrapper" appHighlightDirective>
+    <h3>Product name: <span>{{ product.name }}</span></h3>
+    <div class="cart-item__price">
+      <p>Item price: <span>{{ product.price }}</span></p>
+    </div>
+    <button class="cart__action" (click)="onDecrease()">-</button>
+    <input type="text" [(ngModel)]="product.totalInTheCart" name="itemsInTheCart">
+    <button class="cart__action" (click)="onIncrease()">+</button>
+    <button (click)="onRemove()">Remove from Cart</button>
+</div>
