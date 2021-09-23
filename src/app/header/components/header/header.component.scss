@@ -4,7 +4,7 @@
     height: auto;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
   }
 
@@ -15,24 +15,8 @@
   }
 
   &__devider {
-    height: 3rem;
+    height: 1rem;
     width: 100%;
     background-color: rgba(125,180,66,255);
-  }
-
-  &__cart-icon {
-    color: rgba(75,79,82,255);
-    height: 4rem;
-    width: 5rem;
-
-    :hover {
-      background-color: rgba(125,180,66,255);
-      color: white;
-      border-radius: 40px;
-    }
-    .bi-cart {
-      height: 3rem;
-      width: 3rem;
-    }
   }
 }

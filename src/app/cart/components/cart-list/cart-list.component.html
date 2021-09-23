@@ -1,14 +1,19 @@
-<mat-dialog-content class="cart-popup__content">
-  <div mat-button mat-dialog-close class="cart-popup__button-close"></div>
-  <div *ngIf="data.length" else cartEmpthy>
-    <h1>{{ totalPrice }}</h1>
-    <div *ngFor="let element of data">
-      <h2>{{ element.name }}</h2>
-      <img [src]="element.image" [alt]="element.name" class="cart__image">
-      <p>Price: {{ element.price }}<span>$</span></p>
-    </div>
-  </div>
-  <ng-template #cartEmpthy>
-    <h2>Cart is Empthy!</h2>
-  </ng-template>
-</mat-dialog-content>
+<ng-container class="cart__wrapper" *ngIf="data.length;else cartIsEmpty">
+  <h2>Cart List Component</h2>
+  <ul>
+    <li *ngFor="let product of data">
+      <app-cart-item
+        class="cart__items-cards"
+        [product]="product"
+        (decrease)="onDecrease($event)"
+        (increase)="onIncrease($event)"
+        (remove)="onRemove($event)"
+        >
+      </app-cart-item>
+    </li>
+  </ul>
+  <h2>Total Price: <span>{{ totalPrice }}</span></h2>
+</ng-container>
+<ng-template #cartIsEmpty>
+  <h2>CART IS EMPTY</h2>
+</ng-template>

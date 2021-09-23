@@ -7,9 +7,13 @@
       <p>Description: {{ product.description }}</p>
     </div>
     <p>Price: {{ product.price }}<span>$</span></p>
-    <p>Available: <span>{{ product.isAvailable }}</span></p>
+    <p>Available: <span>{{ product.isAvailable }} - {{ product.totalInTheCart }}</span></p>
   </div>
   <div class="product__action" *ngIf="product.isAvailable">
-    <button class="product__button" (click)="onAddToCart(product)">Buy</button>
+    <button *ngIf="!isDisabled; else inCart" class="product__button" (click)="onAddToCart(product)">Buy</button>
   </div>
 </div>
+
+<ng-template #inCart>
+  <h3 class="template__action-added">The product was added to the cart successfully!</h3>
+</ng-template>

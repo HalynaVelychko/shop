@@ -1,4 +1,4 @@
-<div *ngIf="products | async as products" class="products__cards">
+<div *ngIf="products$ | async as products" class="products__cards">
     <app-product *ngFor="let product of products"
       [product]="product"
       (addToCart)="onAddToCartFromList($event)"

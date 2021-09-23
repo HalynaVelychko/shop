@@ -13,4 +13,5 @@ export interface ProductModel {
   category: ProductCategory;
   isAvailable: boolean;
   image: string;
+  totalInTheCart:number;
 }
