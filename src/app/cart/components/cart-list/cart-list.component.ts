@@ -11,7 +11,6 @@ import { take } from 'rxjs/operators';
 })
 export class CartListComponent implements
   OnInit,
-  OnDestroy,
   DoCheck {
   totalPrice: number = 0;
   data!: ProductModel[];
@@ -24,16 +23,8 @@ export class CartListComponent implements
     this.subs = this.cartService.getFromCart().subscribe(data => this.data = data)
   }
 
-//  ngDoCheck () {
-//   this.cartService.getTotalPrice().pipe(take(1)).subscribe(el => this.totalPrice = el)
-//   }
-
   ngDoCheck () {
     this.totalPrice = this.cartService.getTotalPrice()
-  }
-
-  ngOnDestroy(): void {
-    this.subs.unsubscribe();
   }
 
   onIncrease(product: ProductModel): void {

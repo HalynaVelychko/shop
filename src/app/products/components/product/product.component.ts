@@ -14,8 +14,6 @@ export class ProductComponent {
 
   constructor() { }
 
-
-
   onAddToCart(product: ProductModel): void {
     this.isDisabled = true
     this.addToCart.emit(product);
