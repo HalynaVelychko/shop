@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
 import { HeaderModule } from './header/header.module';
+import { constans, constService } from './core/services/constants.service';
 
 ;
 
@@ -23,7 +24,11 @@ import { HeaderModule } from './header/header.module';
     HeaderModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: constService, useValue: constans
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
