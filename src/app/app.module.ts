@@ -10,6 +10,8 @@ import { CartModule } from './cart/cart.module';
 import { ProductsModule } from './products/products.module';
 import { HeaderModule } from './header/header.module';
 import { constans, constService } from './core/services/constants.service';
+import { generatedString, GeneratorFactory } from './core/services/generator.factory';
+import { GeneratorsService } from './core/services/generators.service';
 
 ;
 
@@ -28,6 +30,7 @@ import { constans, constService } from './core/services/constants.service';
     {
       provide: constService, useValue: constans
     },
+    { provide:  generatedString, useFactory: GeneratorFactory(6), deps: [GeneratorsService] }
   ],
   bootstrap: [AppComponent]
 })
