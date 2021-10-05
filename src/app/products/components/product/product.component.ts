@@ -1,10 +1,10 @@
 import { ProductModel } from './../../model/product.model';
-import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { ButtonState } from './product-list.config';
+import { Component, Input, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductComponent {
   @Input() product!: ProductModel;
@@ -15,7 +15,7 @@ export class ProductComponent {
   constructor() { }
 
   onAddToCart(product: ProductModel): void {
-    this.isDisabled = true
+    this.isDisabled = true;
     this.addToCart.emit(product);
   }
 }

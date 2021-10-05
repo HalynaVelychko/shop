@@ -1,4 +1,4 @@
-import { ProductModel } from './../../products/model/product.model';
+import {  ProductModel } from './../../products/model/product.model';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -7,8 +7,10 @@ import { Observable, of } from 'rxjs';
 })
 export class CartService {
   totalPrice = 0;
+  totalQuantity = 0;
   dataCart: ProductModel[] = [];
   totalQuantityEachItem: any = [];
+  isEmpty: boolean = !this.dataCart.length ? true : false;
 
   constructor() {
    }
@@ -34,7 +36,24 @@ export class CartService {
     return this.dataCart.reduce((sum, el) => sum + el.totalInTheCart * el.price, this.totalPrice)
   }
 
-  removeProductFromTheCart(product: ProductModel): void {
-    this.dataCart =  this.dataCart.filter(el => el.id !== product.id)
+  getTotalQuantity(): number {
+    return this.dataCart.reduce((sum, el) => sum + el.totalInTheCart, this.totalQuantity)
   }
+
+  removeProductFromTheCart(product: ProductModel): void {
+    const index = this.dataCart.findIndex(element => element.id === product.id);
+    if (index > -1) {
+      this.dataCart.splice(index, 1);
+    }
+  }
+
+  removeAllProducts(): ProductModel[]{
+  return this.dataCart.slice(this.dataCart.length);
+  }
+
+  updateCartData() {
+   this.totalPrice = this.getTotalPrice();
+   this.totalQuantity = this.getTotalQuantity();
+  }
+
 }
